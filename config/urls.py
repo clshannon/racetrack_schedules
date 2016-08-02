@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
+    url(r'^redactor/', include('redactor.urls')),
     url(r'^racetracks/', include('racetrackschedules.racetracks.urls', namespace='racetracks')),
     url(r'^events/', include('racetrackschedules.events.urls', namespace='events')),
 

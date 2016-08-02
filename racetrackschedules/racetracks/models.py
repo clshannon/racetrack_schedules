@@ -2,10 +2,11 @@ from django.core.urlresolvers import reverse
 from django.db import models
 
 from localflavor.us.us_states import STATE_CHOICES
-
+from redactor.fields import RedactorField
 
 class Racetrack(models.Model):
     name = models.CharField(max_length=255, blank=False)
+    description = RedactorField(verbose_name=u'Description', null=True, blank=True)
     street1 = models.CharField(max_length=128)
     street2 = models.CharField(max_length=128, null=True, blank=True)
     city = models.CharField(max_length=64)

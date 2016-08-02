@@ -14,9 +14,8 @@
 <div class="row">
   <div class="col-sm-8 blog-main">
     <div class="blog-post">
-      <h3>Description</h3>
       {% if object.description %}
-      <p>{{ object.description }}</p>
+      <p>{{ object.description|safe }}</p>
       <hr>
       {% endif %}
       <h3>Schedule of Events</h3>
@@ -59,7 +58,7 @@
     <div class="sidebar-module">
       <h4>Sponsors</h4>
       <ol class="list-unstyled">
-        <li><a href="#">Placeholder</a></li>
+        <li>Placeholder</li>
       </ol>
     </div>
   </div>

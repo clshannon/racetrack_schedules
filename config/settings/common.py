@@ -41,6 +41,7 @@ THIRD_PARTY_APPS = (
     'allauth.socialaccount',  # registration
     'localflavor',
     'bootstrap3',
+    'redactor',
 )
 
 # Apps specific for this project go here.
@@ -242,3 +243,8 @@ ADMIN_URL = r'^admin/'
 
 
 # Your common stuff: Below this line define 3rd party library settings
+
+# django-wysiwyg-redactor
+# ------------------------------------------------------------------------------
+REDACTOR_OPTIONS = {'lang': 'en'}
+REDACTOR_UPLOAD = 'uploads/'
