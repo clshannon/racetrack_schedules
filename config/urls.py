@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^redactor/', include('redactor.urls')),
     url(r'^racetracks/', include('racetrackschedules.racetracks.urls', namespace='racetracks')),
     url(r'^events/', include('racetrackschedules.events.urls', namespace='events')),
+    url(r'^activities/', include('racetrackschedules.activities.urls', namespace='activities')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

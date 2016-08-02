@@ -51,6 +51,7 @@ LOCAL_APPS = (
     # Your stuff: custom apps go here
     'racetrackschedules.racetracks',
     'racetrackschedules.events',
+    'racetrackschedules.activities',
     'racetrackschedules.common',
 )
 
