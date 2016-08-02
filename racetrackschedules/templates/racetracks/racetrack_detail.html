@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load common_filters %}
+
 {% block content %}
 <div class="page-header" id="banner">
   <div class="row">
@@ -57,18 +59,46 @@
   </div><!-- /.blog-main -->
 
   <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-    <div class="sidebar-module">
-      <h4>General Info</h4>
-      <ol class="list-unstyled">
-        <li><a href="#">Placeholder</a></li>
-      </ol>
+    <div class="sidebar-module sidebar-module-inset">
+      <h4>Track Info</h4>
+      <h6>
+          {{ object }}
+      </h6>
+      <table class="table table-striped table-condensed">
+        <tbody>
+          <tr>
+            <td><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone: </td>
+            <td>
+              {% if object.main_phone %}
+              {{ object.main_phone|phone_number }}
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email:</td>
+            <td>
+              {% if object.main_email %}
+              <a href="mailto:{{ object.racetrack.main_email }}">{{ object.main_email }}</a>
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Website:</td>
+            <td>
+              {% if object.website %}
+              <a href="{{ object.website }}" target="_blank">Go to track site...</a>
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-      <div class="sidebar-module">
-        <h4>Sponsors</h4>
-        <ol class="list-unstyled">
-          <li><a href="#">Placeholder</a></li>
-        </ol>
+    <div class="sidebar-module">
+      <h4>Sponsors</h4>
+      <div class="well">
+        &nbsp;
       </div>
+    </div>
   </div>
   <!-- /.blog-sidebar -->
 

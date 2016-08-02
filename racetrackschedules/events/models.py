@@ -11,6 +11,7 @@ class Event(models.Model):
     description = RedactorField(verbose_name=u'Description', null=True, blank=True)
     start_datetime = models.DateTimeField()
     end_datetime = models.DateTimeField(null=True, blank=True)
+    website = models.URLField(max_length=128, null=True, blank=True)
     racetrack = models.ForeignKey(Racetrack, on_delete=models.CASCADE)
 
     def __str__(self):
