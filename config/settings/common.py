@@ -39,6 +39,7 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'localflavor',
 )
 
 # Apps specific for this project go here.
@@ -46,6 +47,8 @@ LOCAL_APPS = (
     # custom users app
     'racetrackschedules.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+    'racetrackschedules.racetracks',
+    'racetrackschedules.common',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

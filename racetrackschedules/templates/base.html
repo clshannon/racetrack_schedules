@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}racetrackschedules{% endblock title %}</title>
+    <title>{% block title %}Race Track Schedules{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,12 +16,15 @@
 
     {% block css %}
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
 
     <!-- Your stuff: Third-party css libraries go here -->
     {% compress css %}
     <!-- This file store project specific CSS -->
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    <link href="{% static 'css/carosel.css' %}" rel="stylesheet">
     {% endcompress %}
     {% endblock %}
 
@@ -29,47 +32,35 @@
 
   <body>
 
-    <div class="m-b">
-      <nav class="navbar navbar-dark navbar-static-top bg-inverse">
-        <div class="container">
-          <a class="navbar-brand" href="/">racetrackschedules</a>
-          <button type="button" class="navbar-toggler hidden-sm-up pull-xs-right" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
-            &#9776;
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">EventTrac</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
           </button>
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-toggleable-xs" id="bs-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li>
-            </ul>
-
-            <ul class="nav navbar-nav pull-xs-right">
-              {% if request.user.is_authenticated %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign out" %}</a>
-                </li>
-              {% else %}
-                <li class="nav-item">
-                  <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-                </li>
-                <li class="nav-item">
-                  <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
-                </li>
-              {% endif %}
-            </ul>
-          </div>
         </div>
-      </nav>
-    </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <li><a class="nav-link" href="{% url 'about' %}">About</a></li>
+            <li><a class="nav-link" href="{% url 'racetracks:list' %}">Racetracks</a></li>
+          </ul>
 
+          <ul class="nav navbar-nav navbar-right">
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'racetracks:list' %}">{% trans "Racetracks" %}</a></li>
+            <li><a href="{% url 'account_logout' %}">{% trans "Sign out" %}</a></li>
+            {% else %}
+            <li><a id="log-in-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>
+            {% endif %}
+          </ul>
+
+        </div>
+      </div>
+    </div>
     <div class="container">
 
       {% if messages %}
@@ -79,7 +70,7 @@
       {% endif %}
 
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
+
       {% endblock content %}
 
     </div> <!-- /container -->
@@ -97,7 +88,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"></script>
 
       <!-- Latest compiled and minified JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+      <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script> -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
       <!-- Your stuff: Third-party javascript libraries go here -->
 
@@ -109,4 +101,3 @@
     {% endblock javascript %}
   </body>
 </html>
- 
