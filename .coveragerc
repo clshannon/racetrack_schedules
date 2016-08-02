@@ -1,0 +1,5 @@
+[run]
+include = racetrackschedules/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
