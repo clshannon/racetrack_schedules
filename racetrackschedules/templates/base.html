@@ -47,11 +47,11 @@
             <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
             <li><a class="nav-link" href="{% url 'about' %}">About</a></li>
             <li><a class="nav-link" href="{% url 'racetracks:list' %}">Racetracks</a></li>
+            <li><a class="nav-link" href="{% url 'events:list' %}">Events</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
             {% if request.user.is_authenticated %}
-            <li><a href="{% url 'racetracks:list' %}">{% trans "Racetracks" %}</a></li>
             <li><a href="{% url 'account_logout' %}">{% trans "Sign out" %}</a></li>
             {% else %}
             <li><a id="log-in-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>

@@ -11,7 +11,7 @@ class Racetrack(models.Model):
     city = models.CharField(max_length=64)
     state = models.CharField(max_length=33, choices=STATE_CHOICES)
     zip = models.CharField(max_length=32)
-    website = models.CharField(max_length=128, null=True, blank=True)
+    website = models.URLField(max_length=128, null=True, blank=True)
 
     def __str__(self):
         return self.name

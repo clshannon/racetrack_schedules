@@ -48,6 +48,7 @@ LOCAL_APPS = (
     'racetrackschedules.users.apps.UsersConfig',
     # Your stuff: custom apps go here
     'racetrackschedules.racetracks',
+    'racetrackschedules.events',
     'racetrackschedules.common',
 )
 

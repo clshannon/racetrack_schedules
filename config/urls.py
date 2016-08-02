@@ -21,6 +21,7 @@ urlpatterns = [
 
     # Your stuff: custom urls includes go here
     url(r'^racetracks/', include('racetrackschedules.racetracks.urls', namespace='racetracks')),
+    url(r'^events/', include('racetrackschedules.events.urls', namespace='events')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
