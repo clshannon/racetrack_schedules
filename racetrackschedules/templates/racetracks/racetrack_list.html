@@ -26,6 +26,7 @@
                       <th>#</th>
                       <th>Name</th>
                       <th>Location</th>
+                      <th>Events</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
@@ -35,6 +36,9 @@
                         <td></td>
                         <td>{{ object }}</td>
                         <td>{{ object.city }}, {{ object.state }}</td>
+                        <td>
+                          {{ object.event_set.count }}
+                        </td>
                         <td>
                           <div class="btn-group btn-group-xs" role="group" aria-label="...">
                             <a class="btn btn-primary" role="button" href="{{ object.get_absolute_url }}">

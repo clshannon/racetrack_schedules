@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Racetrack
+from .models import Racetrack, SurfaceType
 
 from racetrackschedules.events.models import Event
 
@@ -13,3 +13,4 @@ class RacetrackAdmin(admin.ModelAdmin):
     ]
 
 admin.site.register(Racetrack, RacetrackAdmin)
+admin.site.register(SurfaceType)

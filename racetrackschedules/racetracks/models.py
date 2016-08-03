@@ -21,3 +21,13 @@ class Racetrack(models.Model):
 
     def get_absolute_url(self):
         return reverse('racetracks:detail', args=[str(self.id)])
+
+class SurfaceType(models.Model):
+    description = models.CharField(max_length=100)
+    racetrack = models.ManyToManyField(Racetrack)
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.description
+
+    class Meta:
+        ordering = ('description',)
